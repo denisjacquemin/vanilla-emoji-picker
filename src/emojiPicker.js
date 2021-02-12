@@ -1031,6 +1031,14 @@ class EmojiPicker {
             if (typeof angular !== "undefined") {
                 angular.element(emojiInput).triggerHandler("change");
             }
+
+            // trigger input event on emojiInput
+            var event = new Event('input', {
+                bubbles: true,
+                cancelable: true,
+            });
+
+            emojiInput.dispatchEvent(event);
         };
 
         emojiInput.style.width = "100%";
